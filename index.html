@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Happy Birthday Pqa 💖</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{
+  font-family:'Poppins',sans-serif;
+  background:linear-gradient(180deg,#ff758c,#ff7eb3,#fad0c4,#fbc2eb);
+  color:white;
+  overflow-x:hidden;
+  scroll-behavior:smooth;
+  position: relative;
+}
+
+/* SECTIONS */
+section{
+  min-height:100vh;
+  padding:100px 20px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  perspective:1400px;
+}
+
+/* TITLES */
+h1,h2{ font-family:'Playfair Display', serif; text-align:center;}
+h1{font-size:3.5rem;margin-bottom:15px;}
+h2{font-size:2.5rem;margin-bottom:20px;}
+
+/* FLIP CARDS */
+.flip-card{
+  width:90%;
+  max-width:620px;
+  height:260px;
+  margin:40px 0;
+  perspective:1500px;
+  opacity:0;
+  transform:translateY(60px);
+  transition:1s ease;
+}
+.flip-card.show{opacity:1;transform:translateY(0);}
+.flip-inner{
+  width:100%; height:100%;
+  position:relative;
+  transform-style:preserve-3d;
+  transition:1.2s;
+}
+.flip-card.show .flip-inner{transform:rotateY(180deg);}
+.flip-front,.flip-back{
+  position:absolute; width:100%; height:100%;
+  backface-visibility:hidden; border-radius:25px; padding:35px;
+  background:rgba(255,255,255,0.18); backdrop-filter:blur(15px);
+  display:flex; align-items:center; justify-content:center; text-align:center; font-size:1.15rem;
+}
+.flip-back{transform:rotateY(180deg);}
+
+/* ANDROID CARDS */
+.android-card{
+  width:90%; max-width:380px;
+  border-radius:25px; background:rgba(255,255,255,0.15);
+  padding:25px; margin:25px 0; backdrop-filter:blur(12px);
+  box-shadow:0 10px 25px rgba(0,0,0,0.25);
+  transform:translateY(60px); opacity:0; transition:1s;
+}
+.android-card.show{opacity:1; transform:translateY(0);}
+
+/* GIFS */
+.gif{
+  width:280px; border-radius:20px; margin:25px 0;
+  box-shadow:0 25px 50px rgba(0,0,0,0.25); transform:translateZ(40px);
+}
+
+/* FLOATING HEARTS */
+.heart{
+  position:fixed; bottom:-40px; font-size:22px;
+  animation:floatUp linear infinite; opacity:.65;
+}
+@keyframes floatUp{
+  from{transform:translateY(0);}
+  to{transform:translateY(-140vh);}
+}
+
+/* SNOW */
+.snowflake{
+  position: fixed; top:-10px; color:white; font-size:1.5em;
+  user-select:none; pointer-events:none; z-index:9999;
+  animation:fall linear infinite;
+}
+@keyframes fall{
+  0%{transform:translateY(0) rotate(0deg); opacity:1;}
+  100%{transform:translateY(110vh) rotate(360deg); opacity:0.6;}
+}
+
+/* FINAL HEART */
+.big-heart{ font-size:6.5rem; animation:pulse 1.4s infinite; }
+@keyframes pulse{ 0%{transform:scale(1);} 30%{transform:scale(1.25);} 60%{transform:scale(1);} }
+
+/* FLUSH BUTTON */
+.flush-btn{
+  position:relative; padding:15px 40px; color:#ff4f7a;
+  border:2px solid #ff4f7a; border-radius:40px; background:transparent;
+  font-size:1.1rem; cursor:pointer; overflow:hidden; transition:0.5s; margin-top:20px;
+}
+.flush-btn:hover{ background:#ff4f7a; color:white; }
+.flush-btn:before{
+  content:'';
+  position:absolute; left:50%; top:50%; width:300%; height:300%;
+  background:rgba(255,255,255,0.1); transform:translate(-50%,-50%) rotate(45deg);
+  transition:0.7s;
+}
+.flush-btn:hover:before{width:0;height:0;}
+
+/* END MESSAGE */
+.end{
+  max-width:650px; background:rgba(255,255,255,0.2);
+  backdrop-filter:blur(15px); border-radius:30px; padding:40px;
+  text-align:center; animation:fadeUp 2s ease;
+}
+@keyframes fadeUp{ from{opacity:0;transform:translateY(40px);} to{opacity:1;transform:translateY(0);} }
+</style>
+</head>
+
+<body>
+
+<!-- AUDIO -->
+<audio autoplay loop>
+  <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+</audio>
+
+<!-- FLOATING HEARTS -->
+<script>
+for(let i=0;i<40;i++){
+  let h=document.createElement("div"); h.className="heart"; h.innerHTML="❤️";
+  h.style.left=Math.random()*100+"vw"; h.style.animationDuration=6+Math.random()*6+"s";
+  document.body.appendChild(h);
+}
+</script>
+
+<!-- SNOW -->
+<script>
+for(let i=0;i<60;i++){
+  let s=document.createElement("div"); s.className="snowflake"; s.innerHTML="❄";
+  s.style.left=Math.random()*100+"vw"; s.style.fontSize=(12+Math.random()*15)+"px";
+  s.style.animationDuration=(5+Math.random()*8)+"s"; s.style.animationDelay=Math.random()*5+"s";
+  document.body.appendChild(s);
+}
+</script>
+
+<!-- SECTION 1 -->
+<section>
+<h1>Happy Birthday Pqa 🎉</h1>
+<div class="flip-card">
+  <div class="flip-inner">
+    <div class="flip-front">Scroll gently 💕</div>
+    <div class="flip-back">Today the world became brighter… because you were born. ❤️ </div>
+  </div>
+</div>
+<button class="flush-btn" onclick="funnyMsg()">Click Me ❤️.. </button>
+</section>
+
+<!-- SECTION 2 -->
+<section>
+<h2>You Are My Home 💖</h2>
+<img class="gif" src="https://media.giphy.com/media/l4FGpP4lxGGgK5CBW/giphy.gif">
+<div class="flip-card">
+  <div class="flip-inner">
+    <div class="flip-front">Flip Me ✨</div>
+    <div class="flip-back">Happy birthday, my darling! I'm so lucky to have you. ❤️</div>
+  </div>
+</div>
+<button class="flush-btn" onclick="funnyMsg()">Click Me Again ❤️</button>
+</section>
+
+<!-- SECTION 3 - Bahasa Malaysia -->
+<section>
+<h2>I love youuu my stupid girl!!</h2>
+<img class="gif" src="https://media.giphy.com/media/3oriO0OEd9QIDdllqo/giphy.gif">
+<div class="android-card">
+<p>Selamat hari jadi, Pqa! 😍<br>Awak sangat bermakna dalam hidup saya. Terima kasih kerana selalu buat saya ketawa! 💖</p>
+</div>
+<button class="flush-btn" onclick="funnyMsg()">Klik Sini ❤️</button>
+</section>
+
+<!-- SECTION 4 - Promise -->
+<section>
+<h2>A Promise 🌙</h2>
+<img class="gif" src="https://media.giphy.com/media/26FLdmIp6wJr91JAI/giphy.gif">
+<div class="android-card">
+<p>I promise to be there for you on all days… and make you laugh always! 😄</p>
+</div>
+<button class="flush-btn" onclick="funnyMsg()">Click for Surprise 😁</button>
+</section>
+
+<!-- FINAL -->
+<section>
+<div class="big-heart">❤️</div>
+<div class="end">
+<p>
+Happy Birthday, Pqa 💖<br>
+This website is just a preview…<br>
+The real gift is still waiting for you 🎁😉<br>
+<b>— Say Hi To Ur Mum ,Bodzzen...</b>
+</p>
+<button class="flush-btn" onclick="funnyMsg()">Final Click ❤️</button>
+</div>
+</section>
+
+<script>
+// Intersection Observer for scroll effects
+const flips=document.querySelectorAll(".flip-card");
+const androids=document.querySelectorAll(".android-card");
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){ e.target.classList.add("show"); }
+  });
+},{threshold:0.4});
+flips.forEach(f=>obs.observe(f));
+androids.forEach(a=>obs.observe(a));
+
+// Funny messages array
+const messages=[
+  "You are the cake to my frosting 🎂😂",
+  "Stop being so cute, it’s illegal 😜",
+  "Warning: Hug overload incoming! 🤗",
+  "Keep smiling or I will steal your snacks 😆",
+  "You + Me = Infinite fun ❤️😂",
+  "Click me again! Magic awaits 🪄",
+  "You are my favorite human emoji 😍"
+];
+
+// Function to show random funny message
+function funnyMsg(){
+  const msg = messages[Math.floor(Math.random()*messages.length)];
+  alert(msg);
+}
+</script>
+
+</body>
+</html>

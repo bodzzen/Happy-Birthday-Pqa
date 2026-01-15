@@ -29,9 +29,10 @@ section{
 }
 
 /* TITLES */
-h1,h2{ font-family:'Playfair Display', serif; text-align:center;}
+h1,h2{ font-family:'Playfair Display', serif; text-align:center; opacity:0; transform:translateY(60px); transition:1s;}
 h1{font-size:3.5rem;margin-bottom:15px;}
 h2{font-size:2.5rem;margin-bottom:20px;}
+h1.show, h2.show{ opacity:1; transform:translateY(0); }
 
 /* FLIP CARDS */
 .flip-card{
@@ -55,7 +56,7 @@ h2{font-size:2.5rem;margin-bottom:20px;}
 .flip-front,.flip-back{
   position:absolute; width:100%; height:100%;
   backface-visibility:hidden; border-radius:25px; padding:35px;
-  background:rgba(255,255,255,0.18); backdrop-filter:blur(15px);
+  background:rgba(255,255,255,0.18); -webkit-backdrop-filter:blur(15px); backdrop-filter:blur(15px);
   display:flex; align-items:center; justify-content:center; text-align:center; font-size:1.15rem;
 }
 .flip-back{transform:rotateY(180deg);}
@@ -64,7 +65,7 @@ h2{font-size:2.5rem;margin-bottom:20px;}
 .android-card{
   width:90%; max-width:380px;
   border-radius:25px; background:rgba(255,255,255,0.15);
-  padding:25px; margin:25px 0; backdrop-filter:blur(12px);
+  padding:25px; margin:25px 0; -webkit-backdrop-filter:blur(12px); backdrop-filter:blur(12px);
   box-shadow:0 10px 25px rgba(0,0,0,0.25);
   transform:translateY(60px); opacity:0; transition:1s;
 }
@@ -74,7 +75,9 @@ h2{font-size:2.5rem;margin-bottom:20px;}
 .gif{
   width:280px; border-radius:20px; margin:25px 0;
   box-shadow:0 25px 50px rgba(0,0,0,0.25); transform:translateZ(40px);
+  opacity:0; transform:translateY(60px) translateZ(40px); transition:1s;
 }
+.gif.show{ opacity:1; transform:translateY(0) translateZ(40px); }
 
 /* FLOATING HEARTS */
 .heart{
@@ -89,7 +92,7 @@ h2{font-size:2.5rem;margin-bottom:20px;}
 /* SNOW */
 .snowflake{
   position: fixed; top:-10px; color:white; font-size:1.5em;
-  user-select:none; pointer-events:none; z-index:9999;
+  -webkit-user-select:none; user-select:none; pointer-events:none; z-index:9999;
   animation:fall linear infinite;
 }
 @keyframes fall{
@@ -106,8 +109,10 @@ h2{font-size:2.5rem;margin-bottom:20px;}
   position:relative; padding:15px 40px; color:#ff4f7a;
   border:2px solid #ff4f7a; border-radius:40px; background:transparent;
   font-size:1.1rem; cursor:pointer; overflow:hidden; transition:0.5s; margin-top:20px;
+  opacity:0; transform:translateY(60px);
 }
 .flush-btn:hover{ background:#ff4f7a; color:white; }
+.flush-btn.show{ opacity:1; transform:translateY(0); }
 .flush-btn:before{
   content:'';
   position:absolute; left:50%; top:50%; width:300%; height:300%;
@@ -119,17 +124,19 @@ h2{font-size:2.5rem;margin-bottom:20px;}
 /* END MESSAGE */
 .end{
   max-width:650px; background:rgba(255,255,255,0.2);
-  backdrop-filter:blur(15px); border-radius:30px; padding:40px;
+  -webkit-backdrop-filter:blur(15px); backdrop-filter:blur(15px); border-radius:30px; padding:40px;
   text-align:center; animation:fadeUp 2s ease;
 }
 @keyframes fadeUp{ from{opacity:0;transform:translateY(40px);} to{opacity:1;transform:translateY(0);} }
+
+audio{ display:none; }
 </style>
 </head>
 
 <body>
 
 <!-- AUDIO -->
-<audio autoplay loop>
+<audio autoplay loop preload="auto">
   <source src="https://costly-magenta-hbuxkhpzft.edgeone.app/Happy%20Birthday%20(Piano%20Version).mp3" type="audio/mpeg">
 </audio>
 
@@ -167,7 +174,7 @@ for(let i=0;i<60;i++){
 <!-- SECTION 2 -->
 <section>
 <h2>You Are My Home 💖🏠</h2>
-<img class="gif" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExMXBtZ2szdjF4ZW1qN3V0ajVhcmhuYnprdHg0ZnRvbDVkMXhlYnRjdSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/TbyAOtYa4ywrSpvjtm/giphy.gif">
+<img class="gif" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExMXBtZ2szdjF4ZW1qN3V0ajVhcmhuYnprdHg0ZnRvbDVkMXhlYnRjdSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/TbyAOtYa4ywrSpvjtm/giphy.gif" alt="">
 <div class="flip-card">
   <div class="flip-inner">
     <div class="flip-front">Flip Me ✨😎</div>
@@ -180,7 +187,7 @@ for(let i=0;i<60;i++){
 <!-- SECTION 3 - Bahasa Malaysia -->
 <section>
 <h2>I love youuu my silly girl!! 😝❤️</h2>
-<img class="gif" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExMXBtZ2szdjF4ZW1qN3V0ajVhcmhuYnprdHg0ZnRvbDVkMXhlYnRjdSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/rrmf3fICPZWg1MMXOW/giphy.gif">
+<img class="gif" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExMXBtZ2szdjF4ZW1qN3V0ajVhcmhuYnprdHg0ZnRvbDVkMXhlYnRjdSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/rrmf3fICPZWg1MMXOW/giphy.gif" alt="">
 <div class="android-card">
 <p>Selamat hari jadi, Pqa! 🥰<br>Awak sangat bermakna dalam hidup saya. Terima kasih kerana selalu buat saya ketawa! 😂💖</p>
 </div>
@@ -190,7 +197,7 @@ for(let i=0;i<60;i++){
 <!-- SECTION 4 - Promise -->
 <section>
 <h2>A Promise 🌙✨</h2>
-<img class="gif" src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExd2o3dDR4YTNtNnJnbGJyZm9tcjdjZnF4NDJlZjJkdmJkOTJ5YXJzciZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3NgkmRrw7uzch3BY9o/giphy.gif">
+<img class="gif" src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExd2o3dDR4YTNtNnJnbGJyZm9tcjdjZnF4NDJlZjJkdmJkOTJ5YXJzciZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3NgkmRrw7uzch3BY9o/giphy.gif" alt="">
 <div class="android-card">
 <p>I promise to be there for you on all days… and make you laugh always! 😄💖</p>
 </div>
@@ -199,7 +206,7 @@ for(let i=0;i<60;i++){
 
 <!-- FINAL -->
 <section>
-<img class="gif" src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExdGx2aTV2Y2ZyZjNya2c1OHFsM2cyejZsdXF6enNlZGhueHEzZGl6YyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/xUOrw4tlQfCTGmD5Kw/giphy.gif">
+<img class="gif" src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExdGx2aTV2Y2ZyZjNya2c1OHFsM2cyejZsdXF6enNlZGhueHEzZGl6YyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/xUOrw4tlQfCTGmD5Kw/giphy.gif" alt="">
 <div class="android-card">Take This Kiss 💋💋💋🥰</div>
 <div class="end">
 <p>
@@ -216,6 +223,9 @@ The real gift is still waiting for you 🎁😉<br>
 // Intersection Observer for scroll effects
 const flips=document.querySelectorAll(".flip-card");
 const androids=document.querySelectorAll(".android-card");
+const gifs=document.querySelectorAll(".gif");
+const titles=document.querySelectorAll("h1, h2");
+const buttons=document.querySelectorAll(".flush-btn");
 const obs=new IntersectionObserver(entries=>{
   entries.forEach(e=>{
     if(e.isIntersecting){ e.target.classList.add("show"); }
@@ -223,6 +233,9 @@ const obs=new IntersectionObserver(entries=>{
 },{threshold:0.4});
 flips.forEach(f=>obs.observe(f));
 androids.forEach(a=>obs.observe(a));
+gifs.forEach(g=>obs.observe(g));
+titles.forEach(t=>obs.observe(t));
+buttons.forEach(b=>obs.observe(b));
 
 // Funny messages array with iPhone emojis
 const messages=[
